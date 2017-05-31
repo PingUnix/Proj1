@@ -7,7 +7,7 @@ import { Component,Directive } from '@angular/core';
     <input type="text" name = "name" #inputElement  (keyup)="0"/>
   
     `,
-    styleUrls:['./../test.css','./styles.css']
+    styleUrls:['./../test.css']
 
 })
 export class AppComponent  { 
