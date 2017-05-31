@@ -11,4 +11,5 @@ import { Component,Directive } from '@angular/core';
 
 })
 export class AppComponent  { 
-  name = 'Angular'; }
+  name = 'Angular';
+  title = " angular 2 example" }
