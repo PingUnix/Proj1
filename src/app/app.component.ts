@@ -1,19 +1,42 @@
 import { Component,Directive } from '@angular/core';
-
+import { OnInit} from '@angular/core';
 @Component({
   selector: 'my-app',
-  template: `<p>Hello <span [class.is-awesome] = "inputElement.value==='yes'" >helloo {{name}}</span></p>
+  template: `<p>Hello {{name}} <span [class.is-awesome] = "inputElement.value==='yes'" >helloo {{name}}</span></p>
     <br/><br/>
-    <span [style.color]="'#CD5'">the title is {{title}}</span>
+    <div *ngIf="name === 'MAX'">
+    <span [style.color]="colors">the title is {{title}}</span>
     <label>input name</label>
-
-    <input type="text" name = "name" #inputElement  (keyup)="0"/>
+    </div>
+    <p  [style.background-color]="'grey'">new paragraphy</p>
+    <input type="text" name = "name" id="in1" #inputElement  (keyup)="0"/>
     <button [disabled]="inputElement.value !== 'yes'" > only enabled when input 'yes'</button>
+    <test >this is the test component</test>
+    <button (click)="fun()"> click me </button>
+    <input type="text" name = "input" [value] = "name" /> {{name}}
     `,
     styleUrls:['./../test.css']
 
 })
-export class AppComponent  { 
-  name = 'Angular'; 
-  title = " quick start";
+export class AppComponent implements OnInit { 
+  private name = 'Angular'; 
+  public showDetail = false;
+  colors = 'red';
+  title = "Quick start";
+  index = false;
+  fun(){
+    if(this.index == false){
+    this.name = " name ... ";
+    this.title = this.name + " ... quick start";
+    
+    }
+    else
+      this.ngOnInit();
+    this.index = !this.index;
+  }
+  ngOnInit():any{
+    //return null;
+    this.name = "MAX";
+    this.title = this.name + "quick start";
+}
 }
